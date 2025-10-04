@@ -2,7 +2,7 @@ rulow = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
 ruup  = rulow.upper()
 enlow = 'abcdefghijklmnopqrstuvwxyz'
 enup  = enlow.upper()
-def shift_text(text: str, shift: int) -> str:
+def shift_text(text, shift):
     res = []
     for ch in text:
         if ch in rulow:
