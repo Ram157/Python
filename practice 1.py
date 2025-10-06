@@ -22,7 +22,7 @@ def shift_text(text, shift):
     return ''.join(res)
 while True:
         print('Отправьте 0 — ШИФРОВАТЬ, 1 — ДЕШИФРОВАТЬ, 2 — ВЫХОД')
-        choice = input().strip()
+        choice = input()
         if choice not in ('0', '1', '2'):
             print('Введите либо 0, либо 1, либо 2')
             continue
