@@ -1,7 +1,9 @@
 rulow = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
-ruup  = rulow.upper()
+ruup = rulow.upper()
 enlow = 'abcdefghijklmnopqrstuvwxyz'
-enup  = enlow.upper()
+enup = enlow.upper()
+
+
 def shift_text(text, shift):
     res = []
     for ch in text:
@@ -18,27 +20,29 @@ def shift_text(text, shift):
             i = enup.index(ch)
             res.append(enup[(i + shift) % len(enup)])
         else:
-            res.append(ch) 
+            res.append(ch)
     return ''.join(res)
+
+
 while True:
-        print('Отправьте 0 — ШИФРОВАТЬ, 1 — ДЕШИФРОВАТЬ, 2 — ВЫХОД')
-        choice = input()
-        if choice not in ('0', '1', '2'):
-            print('Введите либо 0, либо 1, либо 2')
-            continue
-        if choice == '2':
+    print('Отправьте 0 — ШИФРОВАТЬ, 1 — ДЕШИФРОВАТЬ, 2 — ВЫХОД')
+    choice = input()
+    if choice not in ('0', '1', '2'):
+        print('Введите либо 0, либо 1, либо 2')
+        continue
+    if choice == '2':
+        break
+    while True:
+        print('Введите число, на которое хотите сдвинуть символы:')
+        s = input().strip()
+        try:
+            shift = int(s)
             break
-        while True:
-            print('Введите число, на которое хотите сдвинуть символы:')
-            s = input().strip()
-            try:
-                shift = int(s)
-                break
-            except :
-                print('Ошибка: нужно целое число.')
-        print('Введите СИМВОЛЫ:')
-        text = input()
-        if choice == '1':
-            shift = -shift
-        print(shift_text(text, shift))
+        except ValueError:
+            print('Ошибка: нужно целое число.')
+    print('Введите СИМВОЛЫ:')
+    text = input()
+    if choice == '1':
+        shift = -shift
+    print(shift_text(text, shift))
 

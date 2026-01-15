@@ -1,46 +1,54 @@
-from random import *
-from string import *
+from random import choice, shuffle
+from string import ascii_uppercase, ascii_lowercase, digits
+
 while True:
-   g=''
-   print('Введите длину пароля: ')
-   try:lenn=int(input())
-   except ValueError:
-    print('ВВОДИ ЦЕЛОЕ ЧИСЛО')
-    continue 
-   print('Вводите 1 ЕСЛИ НУЖЕН, 0 ЕСЛИ НЕ НУЖЕН')
-   print('Должен ли быть верхний регистр?')
-   while True:
-     try: 
-       if int(input())==1:g+=ascii_uppercase
-       break
-     except: 
-      print('НУЖЕН ЛИБО 0  ЛИБО 1')
-   print('Должен ли быть нижний регистр?')
-   while True:
-     try: 
-       if int(input())==1:g+=ascii_lowercase
-       break
-     except: 
-      print('НУЖЕН ЛИБО 0  ЛИБО 1')
-   print('Должны ли быть цифры?')
-   while True:
-     try: 
-       if int(input())==1:g+=digits
-       break
-     except: 
-      print('НУЖЕН ЛИБО 0  ЛИБО 1')
-   print('Должны ли быть спец символы?')
-   while True:
-     try: 
-       if int(input())==1:g+='!@#$%^&*()'
-       break
-     except: 
-      print('НУЖЕН ЛИБО 0  ЛИБО 1')
-   passs = ''.join(choice(g) for _ in range(lenn))
-   passs=list(passs)
-   shuffle(passs)
-   passs=''.join(passs)
-   print(passs)
-   print('ЕСЛИ ХОТИТЕ ЕЩЕ ОДИН ПАРОЛЬ--1 ЕСЛИ ХОТИТЕ ВЫЙТИ--ЛЮБОЙ ДРУГОЙ СИМВОЛ')
-   if input()=='1':continue
-   else: break
+    chars = ''
+    print('Введите длину пароля: ')
+    try:
+        length = int(input())
+    except ValueError:
+        print('ВВОДИ ЦЕЛОЕ ЧИСЛО')
+        continue
+    print('Вводите 1 ЕСЛИ НУЖЕН, 0 ЕСЛИ НЕ НУЖЕН')
+    print('Должен ли быть верхний регистр?')
+    while True:
+        try:
+            if int(input()) == 1:
+                chars += ascii_uppercase
+            break
+        except ValueError:
+            print('НУЖЕН ЛИБО 0  ЛИБО 1')
+    print('Должен ли быть нижний регистр?')
+    while True:
+        try:
+            if int(input()) == 1:
+                chars += ascii_lowercase
+            break
+        except ValueError:
+            print('НУЖЕН ЛИБО 0  ЛИБО 1')
+    print('Должны ли быть цифры?')
+    while True:
+        try:
+            if int(input()) == 1:
+                chars += digits
+            break
+        except ValueError:
+            print('НУЖЕН ЛИБО 0  ЛИБО 1')
+    print('Должны ли быть спец символы?')
+    while True:
+        try:
+            if int(input()) == 1:
+                chars += '!@#$%^&*()'
+            break
+        except ValueError:
+            print('НУЖЕН ЛИБО 0  ЛИБО 1')
+    password = list(''.join(choice(chars) for _ in range(length)))
+    shuffle(password)
+    password = ''.join(password)
+    print(password)
+    print('ЕСЛИ ХОТИТЕ ЕЩЕ ОДИН ПАРОЛЬ--1 '
+          'ЕСЛИ ХОТИТЕ ВЫЙТИ--ЛЮБОЙ ДРУГОЙ СИМВОЛ')
+    if input() == '1':
+        continue
+    else:
+        break

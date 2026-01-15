@@ -26,12 +26,12 @@ class Creature:
 
 
 class Dragon(Creature):
-    def fireBall(self, enemy):
+    def fire_ball(self, enemy):
         damage = randint(2, 4)
         print(f'{self.get_name()} пускает огненный шар! Урон: {damage}')
         enemy.set_hp(enemy.get_hp() - damage)
 
-    def atackKogti(self, enemy):
+    def attack_kogti(self, enemy):
         damage = randint(1, 2)
         print(f'{self.get_name()} атакует когтями! Урон: {damage}')
         enemy.set_hp(enemy.get_hp() - damage)
@@ -47,12 +47,12 @@ class Player(Creature):
         print(f'{self.get_name()} медитирует и восстанавливает 1 HP.')
         self.set_hp(self.get_hp() + 1)
 
-    def atack(self, enemy):
+    def attack(self, enemy):
         damage = randint(self.get_power(), self.get_power() * 2)
         print(f'{self.get_name()} атакует мечом! Урон: {damage}')
         enemy.set_hp(enemy.get_hp() - damage)
 
-    def bowAtack(self, enemy):
+    def bow_attack(self, enemy):
         damage = randint(1, 2)
         print(f'{self.get_name()} стреляет из лука! Урон: {damage}')
         enemy.set_hp(enemy.get_hp() - damage)
@@ -97,9 +97,9 @@ else:
         print('Ваши действия:\n1 — Атака мечом\n2 — Атака из лука\n3 — Медитация')
         attack_choice = input('> ')
         if attack_choice == '1':
-            player1.atack(dragon1)
+            player1.attack(dragon1)
         elif attack_choice == '2':
-            player1.bowAtack(dragon1)
+            player1.bow_attack(dragon1)
         elif attack_choice == '3':
             player1.meditation()
         else:
@@ -108,9 +108,9 @@ else:
         if dragon1.get_hp() > 0:
             move = randint(1, 4)
             if move == 1:
-                dragon1.fireBall(player1)
+                dragon1.fire_ball(player1)
             elif move == 2:
-                dragon1.atackKogti(player1)
+                dragon1.attack_kogti(player1)
             else:
                 dragon1.heal()
         time += 1

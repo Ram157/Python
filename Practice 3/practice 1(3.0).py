@@ -1,45 +1,24 @@
 from random import randint
-RandInt=randint(1, 100)
+
+rand_int = randint(1, 100)
 print('УГАДАЙ ЧИСЛО ОТ 1 ДО 100')
+popitka = 0
+
 while True:
-    try: 
-        InpInt = int(input())
-        print(['ЗАДАННОЕ ЧИСЛО МЕНЬШЕ' if InpInt > RandInt  else 'ЗАДАННОЕ ЧИСЛО БОЛЬШЕ' ])
-        break
-    except: 
-        print('ТЫ ВВЕЛ НЕ ЧИСЛО ВВЕДИ ЗАНОВО')
-        continue
-while True and RandInt != InpInt:
-    try: 
-        InpInt = int(input())
-        if InpInt != RandInt:
-         print(['ЗАДАННОЕ ЧИСЛО МЕНЬШЕ' if InpInt > RandInt else 'ЗАДАННОЕ ЧИСЛО БОЛЬШЕ' ],
-               ' А ТАКЖЕ Остаток от 2 у заданного числа:',InpInt%2)
-        else: 
+    try:
+        inp_int = int(input())
+        popitka += 1
+        if inp_int == rand_int:
             print('ВЫ УГАДАЛИ УРА')
-        break
-    except: 
+            break
+        elif inp_int > rand_int:
+            print('ЗАДАННОЕ ЧИСЛО МЕНЬШЕ')
+        else:
+            print('ЗАДАННОЕ ЧИСЛО БОЛЬШЕ')
+        if popitka >= 2:
+            print(f'А ТАКЖЕ Остаток от 2 у заданного числа: {rand_int % 2}')
+    except ValueError:
         print('ТЫ ВВЕЛ НЕ ЧИСЛО ВВЕДИ ЗАНОВО')
         continue
-while True and RandInt != InpInt:
-    try: 
-        InpInt = int(input())
-        print('ЗАДАННЫМ ЧИСЛОМ БЫЛО',RandInt)
-        break
-    except: 
-        print('ТЫ ВВЕЛ НЕ ЧИСЛО ВВЕДИ ЗАНОВО')
-        continue
-while True and RandInt != InpInt:
-    try: 
-        s = int(input())
-        if s != RandInt:
-            print('ЗАДАННОЕ ЧИСЛО',RandInt) 
-        else: 
-            print('ВЫ УГАДАЛИ УРА')
-        break
-    except: 
-        print('ТЫ ВВЕЛ НЕ ЧИСЛО ВВЕДИ ЗАНОВО')
-        continue
-if RandInt == InpInt:print('ТЫ УГАДАЛ, УРА')
 
 
