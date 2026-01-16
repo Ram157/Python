@@ -15,18 +15,15 @@ while win_counter_bot != 3 and win_counter_player != 3:
         print('НИЧЬЯ')
         continue
     else:
-        player_wins = (
-            (choice_player == '3' and choice_bot == '1') or
+        if ((choice_player == '3' and choice_bot == '1') or
             (choice_player == '2' and choice_bot == '3') or
-            (choice_player == '1' and choice_bot == '2')
-        )
-        if player_wins:
-            print('ТЫ ВЫИГРАЛ РАУНД УРА')
-            win_counter_player += 1
+            (choice_player == '1' and choice_bot == '2')):
+                print('ТЫ ВЫИГРАЛ РАУНД УРА')
+                win_counter_player += 1
         else:
             print('Ты проиграл раунд(((')
             win_counter_bot += 1
-
+    print(f'ХОД ПРОТИВНИКА БЫЛ -- {choice_bot}')
 if win_counter_bot == 3:
     print('Вы проиграли игру(')
 else:
